@@ -13,7 +13,7 @@
   --panel:#ffffff;
   --text:#102a43;
   --muted:#627d98;
-  --accent:#20a4a9; /* replaced by generator from schema.theme.accent or --accent flag */
+  --accent:#2a5fb5; /* replaced by generator from schema.theme.accent or --accent flag */
   --accent-600: color-mix(in oklab, var(--accent) 90%, black);
   --accent-200: color-mix(in oklab, var(--accent) 20%, white);
   --danger:#d64545;
@@ -126,7 +126,7 @@ hr.sep{border:0;border-top:1px dashed var(--border);margin:16px 0}
   <div class="toast" id="toast"></div>
 
   <!-- The generator will inject the inline schema here -->
-  <script id="schema" type="application/json">{"title":"ESP32 Settings","theme":{"accent":"#20a4a9"},"pages":[{"id":"network","title":"Network","sections":[{"legend":"Wi‑Fi","fields":[{"type":"text","name":"wifi.ssid","label":"SSID","required":true,"placeholder":"Your Wi‑Fi name"},{"type":"password","name":"wifi.password","label":"Password","required":true,"minlength":8},{"type":"select","name":"wifi.band","label":"Wi‑Fi Band","options":[{"value":"2.4","label":"2.4 GHz"},{"value":"5","label":"5 GHz"}],"default":"2.4","help":"Pick the band your AP supports."}]},{"legend":"Device","fields":[{"type":"text","name":"device.mac","label":"MAC Address","validator":"mac","placeholder":"AA:BB:CC:DD:EE:FF"},{"type":"text","name":"device.static_ip_port","label":"Static IP:Port","validator":"ip_port","placeholder":"192.168.1.10:8080"},{"type":"number","name":"device.port","label":"TCP Port","validator":"port","default":80,"min":1,"max":65535}]}],"buttons":[{"label":"Reboot","method":"POST","endpoint":"/reboot","confirm":"Reboot device now?","includeForm":false},{"label":"Factory Reset","method":"POST","endpoint":"/factory_reset","confirm":"Reset device to defaults?","includeForm":false}]},{"id":"cloud","title":"Cloud","sections":[{"legend":"Server","fields":[{"type":"text","name":"cloud.url","label":"Server URL","validator":"url","placeholder":"https://example.com/api"},{"type":"checkbox","name":"cloud.enabled","label":"Enable Cloud"}]}],"buttons":[{"label":"Test Connection","method":"POST","endpoint":"/test_cloud","includeForm":true}]}],"defaultButtons":[{"label":"Save All","kind":"save"}]}</script>
+  <script id="schema" type="application/json">{"title":"ESP32 Settings","theme":{"accent":"#2a5fb5"},"pages":[{"id":"network","title":"Network","sections":[{"legend":"Wi‑Fi","fields":[{"type":"text","name":"wifi.ssid","label":"SSID","required":true,"placeholder":"Your Wi‑Fi name"},{"type":"password","name":"wifi.password","label":"Password","required":true,"minlength":8},{"type":"select","name":"wifi.band","label":"Wi‑Fi Band","options":[{"value":"2.4","label":"2.4 GHz"},{"value":"5","label":"5 GHz"}],"default":"2.4","help":"Pick the band your AP supports."}]},{"legend":"Device","fields":[{"type":"text","name":"device.mac","label":"MAC Address","validator":"mac","placeholder":"AA:BB:CC:DD:EE:FF"},{"type":"text","name":"device.static_ip","label":"Static IP","validator":"ip","placeholder":"192.168.1.10"},{"type":"number","name":"device.port","label":"TCP Port","validator":"port","default":80,"min":1,"max":65535},{"type":"text","name":"device.static_ip_port","label":"Static IP:port","validator":"ip_port","placeholder":"192.168.1.10:8080"}]}],"buttons":[{"label":"Reboot","method":"POST","endpoint":"/reboot","confirm":"Reboot device now?","includeForm":false},{"label":"Factory Reset","method":"POST","endpoint":"/factory_reset","confirm":"Reset device to defaults?","includeForm":false}]},{"id":"cloud","title":"Cloud","sections":[{"legend":"Server","fields":[{"type":"text","name":"cloud.url","label":"Server URL","validator":"url","placeholder":"https://example.com/api"},{"type":"checkbox","name":"cloud.enabled","label":"Enable Cloud"}]}],"buttons":[{"label":"Test Connection","method":"POST","endpoint":"/test_cloud","includeForm":true}]}],"defaultButtons":[{"label":"Save All","kind":"save"}]}</script>
 
   <!-- The generator will place a <script>...</script> block here -->
   <script>
@@ -187,6 +187,11 @@ hr.sep{border:0;border-top:1px dashed var(--border);margin:16px 0}
       if (!reIPv4.test(ip || '')) return "Invalid IPv4 address";
       const n = Number(port);
       if (!port || !Number.isInteger(n) || n < 1 || n > 65535) return "Port must be 1–65535";
+      return null;
+    },
+	ip: (v) => {
+      const ip = String(v);
+      if (!reIPv4.test(ip || '')) return "Invalid IPv4 address";
       return null;
     },
     url: (v) => {

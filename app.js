@@ -57,6 +57,11 @@
       if (!port || !Number.isInteger(n) || n < 1 || n > 65535) return "Port must be 1–65535";
       return null;
     },
+	ip: (v) => {
+      const ip = String(v);
+      if (!reIPv4.test(ip || '')) return "Invalid IPv4 address";
+      return null;
+    },
     url: (v) => {
       try {
         const u = new URL(v);

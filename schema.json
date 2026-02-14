@@ -1,6 +1,6 @@
 {
   "title": "ESP32 Settings",
-  "theme": { "accent": "#20a4a9" },
+  "theme": { "accent": "#2a5fb5" },
   "pages": [
     {
       "id": "network",
@@ -29,8 +29,9 @@
           "legend": "Device",
           "fields": [
             { "type": "text", "name": "device.mac", "label": "MAC Address", "validator": "mac", "placeholder": "AA:BB:CC:DD:EE:FF" },
-            { "type": "text", "name": "device.static_ip_port", "label": "Static IP:Port", "validator": "ip_port", "placeholder": "192.168.1.10:8080" },
-            { "type": "number", "name": "device.port", "label": "TCP Port", "validator": "port", "default": 80, "min": 1, "max": 65535 }
+            { "type": "text", "name": "device.static_ip", "label": "Static IP", "validator": "ip", "placeholder": "192.168.1.10" },
+            { "type": "number", "name": "device.port", "label": "TCP Port", "validator": "port", "default": 80, "min": 1, "max": 65535 },
+			{ "type": "text", "name": "device.static_ip_port", "label": "Static IP:port", "validator": "ip_port", "placeholder": "192.168.1.10:8080" }
           ]
         }
       ],
