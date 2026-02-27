@@ -1,5 +1,5 @@
 {
-  "title": "ESP32 Settings",
+  "title": "ESP32 Settings UI",
   "theme": { "accent": "#2a5fb5" },
   "pages": [
     {
@@ -60,4 +60,5 @@
   "defaultButtons": [
     { "label": "Save All", "kind": "save" }
   ]
+
 }
