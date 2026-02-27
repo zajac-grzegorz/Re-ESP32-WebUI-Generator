@@ -1,5 +1,5 @@
 {
-  "title": "ESP32 Settings UI",
+  "title": "ESP32 Settings UI Demo",
   "theme": { "accent": "#2a5fb5" },
   "pages": [
     {
@@ -62,3 +62,4 @@
   ]
 
 }
+
