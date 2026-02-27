@@ -17,7 +17,7 @@ concurrency:
 env:
   # 🔧 Replace these with your paths
   PYTHON_VERSION: "3.11"
-  PY_SCRIPT: "generate_settings_ui_single.py --schema schema.json --template template.html --css app.css --js app.js --out settings_all_in_one.html"
+  PY_SCRIPT: "generate_settings_ui_single.py"
   OUTPUT_HTML: "settings_all_in_one.html"
   # If your script writes an entire folder, set OUTPUT_DIR instead of OUTPUT_HTML
 
